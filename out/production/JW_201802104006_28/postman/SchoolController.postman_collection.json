@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "d0aa67f9-c010-4335-9ca9-e5f35b081751",
+		"name": "SchoolController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/school.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0040febd-6533-4192-b5f4-ef7bbcb033b5",
+						"exec": [
+							"pm.test(\"Body matches string学院名称\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"管理学院\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/school.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school.ctl"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/school.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "97db254e-5327-4756-8310-c72a84a04450",
+						"exec": [
+							"pm.test(\"Body is correct删除成功？\", function () {",
+							"    pm.response.to.have.body({\"message\":\"删除成功\",\"statusCode\":\"200\"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/school.ctl?id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/school.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44b9c7b8-eb29-4012-b4f6-824f9501a79c",
+						"exec": [
+							"",
+							"pm.test(\"Body is correct增加成功？\", function () {",
+							"    pm.response.to.have.body({\"message\":\"增加成功\",\"statusCode\":\"200\"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"description\": \"外国语学院\",\r\n        \"no\": \"03\",\r\n        \"remarks\": \"\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/school.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/school.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdfae5a3-1a83-4c9f-af85-846203f6d25c",
+						"exec": [
+							"pm.test(\"Body is correct更新成功？\", function () {",
+							"    pm.response.to.have.body({\"message\":\"更新成功\",\"statusCode\":\"200\"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"description\": \"管理学院\",\r\n        \"id\": 3,\r\n        \"no\": \"02\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/school.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

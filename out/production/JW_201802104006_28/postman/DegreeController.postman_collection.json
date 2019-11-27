@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "9d0e74c2-3e4f-4a6e-b706-d7d47e7d3388",
+		"name": "DegreeController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/degree.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e5a13dcf-50d0-476f-a6e5-93f1d2ce462e",
+						"exec": [
+							"pm.test(\"Body matches string学位名称\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"博士\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/degree.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"degree.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/degree.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e599d4b5-6e53-439a-ab0f-fcfcc53c5d1b",
+						"exec": [
+							"",
+							"pm.test(\"Body is correct增加成功？\", function () {",
+							"    pm.response.to.have.body({\"message\":\"增加成功\",\"statusCode\":\"200\"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"description\": \"添加新学位\",\r\n        \"no\": \"02\",\r\n        \"remarks\": \"\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/degree.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"degree.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/degree.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1498973c-68cd-4b8b-9c7d-bd3d581da6b4",
+						"exec": [
+							"pm.test(\"Body is correct更新成功？\", function () {",
+							"    pm.response.to.have.body({\"message\":\"更新成功\",\"statusCode\":\"200\"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"description\": \"修改55学位\",\r\n        \"id\": 10,\r\n        \"no\": \"05\",\r\n        \"remarks\": \"\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/degree.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"degree.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/degree.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cd02ec03-f2a5-4393-a89b-4c4774fb8bdd",
+						"exec": [
+							"pm.test(\"Body is correct删除成功？\", function () {",
+							"    pm.response.to.have.body({\"message\":\"删除成功\",\"statusCode\":\"200\"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/degree.ctl?id=33",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"degree.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "33"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

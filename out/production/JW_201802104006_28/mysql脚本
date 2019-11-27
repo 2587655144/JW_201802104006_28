@@ -1,0 +1,56 @@
+create table degree
+(
+    id          bigint auto_increment
+        primary key,
+    description varchar(255) not null,
+    no          varchar(255) not null,
+    remarks     varchar(255) null
+);
+
+create table department
+(
+    id          bigint auto_increment
+        primary key,
+    description varchar(255) not null,
+    no          varchar(255) not null,
+    remarks     varchar(255) null,
+    school_id   bigint       not null,
+    constraint department_school_id_fk
+        foreign key (school_id) references school (id)
+);
+
+create table profTitle
+(
+    id          bigint auto_increment
+        primary key,
+    description varchar(255) not null,
+    no          varchar(255) not null,
+    remarks     varchar(255) null
+);
+
+create table school
+(
+    id          bigint auto_increment
+        primary key,
+    description varchar(255) not null,
+    no          varchar(255) not null,
+    remarks     varchar(255) null,
+    constraint no
+        unique (no)
+);
+
+create table teacher
+(
+    id        bigint auto_increment
+        primary key,
+    name      varchar(255) not null,
+    profTitle_id  bigint       not null,
+    degree_id bigint       not null,
+    department_id   bigint       not null,
+    constraint teacher_degree_id_fk
+        foreign key (degree_id) references degree (id),
+    constraint teacher_department_id_fk
+        foreign key (department_id) references department (id),
+    constraint teacher_profTitle_id_fk
+        foreign key (proTitle_id) references profTitle (id)
+);
